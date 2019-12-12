@@ -12,6 +12,9 @@ class DemoBuilder extends MatchableBuilder {
   @override
   Matcher get matcher => Matcher.and([
         FilenameExtensionMatcher('.dart'),
+        ElementAnnotationMatcher<Deprecated>(),
+        ElementNamePrefixMatcher('A'),
+        ElementNameSuffixMatcher('a'),
       ]);
 
   @override
