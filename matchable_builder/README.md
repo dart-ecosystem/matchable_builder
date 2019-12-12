@@ -1,22 +1,32 @@
-A library for Dart developers.
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+# Matchable Builder
+Matchable builder used to build new files from existing ones.
 
 ## Usage
-
-A simple usage example:
-
 ```dart
-import 'package:matchable_builder/matchable_builder.dart';
+Builder demoBuilder(BuilderOptions ops) => DemoBuilder();
 
-main() {
-  var awesome = new Awesome();
+class DemoBuilder extends MatchableBuilder {
+  @override
+  Matcher get buildStepMatcher => Matcher.and([
+        FilenameExtensionMatcher('.dart'),
+      ]);
+
+  @override
+  Matcher get elementMatcher => Matcher.and([
+        ElementTypeMatcher<ClassElement>(),
+        ElementAnnotationMatcher<Deprecated>(),
+        ElementNamePrefixMatcher('a'),
+      ]);
+
+  @override
+  Map<String, List<String>> get buildExtensions => {
+        '.dart': ['.demo.dart'],
+      };
+
+  @override
+  FutureOr<void> generate(List<Element> elements, BuildStep buildStep) {
+    print('${buildStep.inputId.path} | ${elements}');
+    return null;
+  }
 }
 ```
-
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
