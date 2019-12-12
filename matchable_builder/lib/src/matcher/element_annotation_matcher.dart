@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:matchable_builder/src/filter/matcher.dart';
+import 'package:matchable_builder/src/matcher/matcher.dart';
 import 'package:matchable_builder/src/matchable_source.dart';
 import 'package:source_gen/source_gen.dart';
 

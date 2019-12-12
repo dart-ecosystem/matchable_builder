@@ -10,15 +10,8 @@ class DemoBuilder extends MatchableBuilder {
   DemoBuilder(BuilderOptions options) : super(options);
 
   @override
-  Matcher get buildStepMatcher => Matcher.and([
+  Matcher get matcher => Matcher.and([
         FilenameExtensionMatcher('.dart'),
-      ]);
-
-  @override
-  Matcher get elementMatcher => Matcher.and([
-        ElementTypeMatcher<ClassElement>(),
-        ElementAnnotationMatcher<Deprecated>(),
-        ElementNamePrefixMatcher('a'),
       ]);
 
   @override

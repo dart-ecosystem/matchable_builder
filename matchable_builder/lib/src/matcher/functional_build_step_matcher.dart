@@ -1,5 +1,5 @@
 import 'package:build/src/builder/build_step.dart';
-import 'package:matchable_builder/src/filter/matcher.dart';
+import 'package:matchable_builder/src/matcher/matcher.dart';
 import 'package:matchable_builder/src/matchable_source.dart';
 
 class FunctionalBuildStepMatcher implements Matcher {
