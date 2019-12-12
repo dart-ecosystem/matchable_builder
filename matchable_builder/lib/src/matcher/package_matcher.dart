@@ -15,7 +15,7 @@ class PackageMatcher implements Matcher {
     }
 
     if (packagePattern is RegExp) {
-      (packagePattern as RegExp).hasMatch(packageName);
+      return (packagePattern as RegExp).hasMatch(packageName);
     }
 
     return false;

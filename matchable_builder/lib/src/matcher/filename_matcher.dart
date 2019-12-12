@@ -16,7 +16,7 @@ class FilenameMatcher implements Matcher {
     }
 
     if (filenamePattern is RegExp) {
-      (filenamePattern as RegExp).hasMatch(filename);
+      return (filenamePattern as RegExp).hasMatch(filename);
     }
 
     return false;
