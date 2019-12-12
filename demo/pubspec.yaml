@@ -1,0 +1,15 @@
+name: demo
+description: A demo for matchable_builder
+
+environment:
+  sdk: '>=2.4.0 <3.0.0'
+
+dependencies:
+  build: ^1.2.2
+  matchable_builder:
+    path: ../matchable_builder
+
+dev_dependencies:
+  pedantic: ^1.7.0
+  test: ^1.6.0
+  build_runner: any

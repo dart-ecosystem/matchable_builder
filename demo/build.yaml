@@ -1,0 +1,7 @@
+builders:
+  demo|1:
+    import: 'package:demo/builder.dart'
+    builder_factories: ['demoBuilder']
+    build_extensions: { '.dart': ['.demo.dart'] }
+    auto_apply: root_package
+    build_to: source
