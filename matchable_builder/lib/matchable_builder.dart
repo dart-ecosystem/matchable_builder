@@ -16,6 +16,10 @@ export 'package:matchable_builder/src/filter/general/always_false_matcher.dart';
 // build step filters
 export 'package:matchable_builder/src/filter/buildstep/filename_extension_matcher.dart';
 export 'package:matchable_builder/src/filter/buildstep/filename_matcher.dart';
+export 'package:matchable_builder/src/filter/buildstep/filename_prefix_matcher.dart';
+export 'package:matchable_builder/src/filter/buildstep/filename_suffix_matcher.dart';
+export 'package:matchable_builder/src/filter/buildstep/functional_build_step_matcher.dart';
+export 'package:matchable_builder/src/filter/buildstep/package_matcher.dart';
 
 // element filters
 export 'package:matchable_builder/src/filter/element/element_annotation_matcher.dart';
