@@ -1,5 +1,5 @@
-abstract class Matcher {
-  bool test(Object element);
+abstract class Matcher<T extends Object> {
+  bool test(T element);
 
   static T and<T extends Matcher>(List<T> filters) {
     return AndFilter<T>(filters) as T;
