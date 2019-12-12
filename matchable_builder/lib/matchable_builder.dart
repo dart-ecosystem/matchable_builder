@@ -15,7 +15,7 @@ export 'package:matchable_builder/src/matcher/filename_extension_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_prefix_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_suffix_matcher.dart';
-export 'package:matchable_builder/src/matcher/functional_build_step_matcher.dart';
+export 'package:matchable_builder/src/matcher/functional_matcher.dart';
 export 'package:matchable_builder/src/matcher/package_matcher.dart';
 
 // element matchers

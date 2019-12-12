@@ -2,15 +2,15 @@ import 'package:build/src/builder/build_step.dart';
 import 'package:matchable_builder/src/matcher/matcher.dart';
 import 'package:matchable_builder/src/matchable_source.dart';
 
-class FunctionalBuildStepMatcher implements Matcher {
+class FunctionalMatcher implements Matcher {
   BuildStepPredicate _predicate;
 
-  FunctionalBuildStepMatcher(this._predicate);
+  FunctionalMatcher(this._predicate);
 
   @override
   bool test(MatchableSource source) {
-    return _predicate(source.buildStep);
+    return _predicate(source);
   }
 }
 
-typedef bool BuildStepPredicate(BuildStep buildStep);
+typedef bool BuildStepPredicate(MatchableSource source);
