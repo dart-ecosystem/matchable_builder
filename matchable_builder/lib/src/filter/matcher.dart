@@ -1,5 +1,7 @@
-abstract class Matcher<T extends Object> {
-  bool test(T element);
+import 'package:matchable_builder/src/matchable_source.dart';
+
+abstract class Matcher {
+  bool test(MatchableSource element);
 
   static T and<T extends Matcher>(List<T> filters) {
     return AndFilter<T>(filters) as T;

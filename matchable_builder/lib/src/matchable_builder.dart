@@ -2,16 +2,13 @@ import 'dart:async';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:matchable_builder/src/filter/general/always_true_matcher.dart';
+import 'package:matchable_builder/src/filter/always_true_matcher.dart';
 import 'package:matchable_builder/src/filter/matcher.dart';
+import 'package:matchable_builder/src/matchable_source.dart';
 import 'package:source_gen/source_gen.dart';
 
 abstract class MatchableBuilder extends Builder {
-  Matcher get buildStepMatcher => AlwaysTrueMatcher();
-
-  Matcher get libraryMatcher => AlwaysTrueMatcher();
-
-  Matcher get elementMatcher => AlwaysTrueMatcher();
+  Matcher get matcher => AlwaysTrueMatcher();
 
   FutureOr<void> generate(List<Element> elements, BuildStep buildStep);
 
@@ -21,10 +18,6 @@ abstract class MatchableBuilder extends Builder {
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    if (!buildStepMatcher.test(buildStep)) {
-      return;
-    }
-
     // prepare
     final library = await _getLibrary(buildStep);
 
@@ -33,14 +26,15 @@ abstract class MatchableBuilder extends Builder {
       return;
     }
 
-    // check library
-    if (!libraryMatcher.test(library)) {
-      return;
-    }
+    final matchableSource = MatchableSource()
+      ..libraryElement = library
+      ..buildStep = buildStep;
 
     final libraryReader = LibraryReader(library);
 
-    final validElements = libraryReader.allElements.where(elementMatcher.test).toList();
+    final validElements = libraryReader.allElements.where((element) {
+      return matcher.test(matchableSource..element = element);
+    }).toList();
 
     if (validElements.isEmpty) {
       return;

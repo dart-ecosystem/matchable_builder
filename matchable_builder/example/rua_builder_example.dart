@@ -8,7 +8,7 @@ import 'package:matchable_builder/src/matchable_builder.dart';
 
 class MyBuilder extends MatchableBuilder {
   @override
-  ElementMatcher elementMatcher = Matcher.and([
+  Matcher matcher = Matcher.and([
     ElementTypeMatcher<ClassElement>(),
   ]);
 

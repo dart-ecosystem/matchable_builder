@@ -1,14 +1,16 @@
 import 'package:build/src/builder/build_step.dart';
-import 'package:matchable_builder/src/filter/build_step_matcher.dart';
+import 'package:matchable_builder/src/filter/matcher.dart';
+import 'package:matchable_builder/src/matchable_source.dart';
 
-class FilenameMatcher implements BuildStepMatcher {
+class FilenameMatcher implements Matcher {
   Pattern filenamePattern;
 
   FilenameMatcher(this.filenamePattern);
 
   @override
-  bool test(covariant BuildStep element) {
-    final filename = element.inputId.uri.pathSegments.last;
+  bool test(MatchableSource source) {
+    final buildStep = source.buildStep;
+    final filename = buildStep.inputId.uri.pathSegments.last;
     if (filenamePattern is String) {
       return filenamePattern == filename;
     }
