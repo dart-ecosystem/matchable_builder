@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/src/builder/build_step.dart';
+import 'package:build/src/builder/builder.dart';
 import 'package:matchable_builder/matchable_builder.dart';
 import 'package:matchable_builder/src/matchable_builder.dart';
 
@@ -10,6 +11,8 @@ class MyBuilder extends MatchableBuilder {
   ElementMatcher elementMatcher = Matcher.and([
     ElementTypeMatcher<ClassElement>(),
   ]);
+
+  MyBuilder(BuilderOptions options) : super(options);
 
   @override
   Map<String, List<String>> get buildExtensions => {

@@ -15,6 +15,10 @@ abstract class MatchableBuilder extends Builder {
 
   FutureOr<void> generate(List<Element> elements, BuildStep buildStep);
 
+  BuilderOptions options;
+
+  MatchableBuilder(this.options);
+
   @override
   FutureOr<void> build(BuildStep buildStep) async {
     if (!buildStepMatcher.test(buildStep)) {
