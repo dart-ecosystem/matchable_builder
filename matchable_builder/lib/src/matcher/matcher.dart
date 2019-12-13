@@ -1,7 +1,7 @@
 import 'package:matchable_builder/src/matchable_source.dart';
 
 abstract class Matcher {
-  bool test(MatchableSource element);
+  bool test(MatchableSource source);
 
   static T and<T extends Matcher>(List<T> matchers) {
     return AndMatcher<T>(matchers) as T;
@@ -22,11 +22,11 @@ class AndMatcher<T extends Matcher> implements Matcher {
   AndMatcher(this.matchers);
 
   @override
-  bool test(Object element) {
+  bool test(MatchableSource source) {
     if (matchers == null) {
       return true;
     }
-    return matchers.every((matcher) => matcher.test(element));
+    return matchers.every((matcher) => matcher.test(source));
   }
 }
 
@@ -36,11 +36,11 @@ class OrMatcher<T extends Matcher> implements Matcher {
   OrMatcher(this.matchers);
 
   @override
-  bool test(Object element) {
+  bool test(MatchableSource source) {
     if (matchers == null) {
       return true;
     }
-    return matchers.any((matcher) => matcher.test(element));
+    return matchers.any((matcher) => matcher.test(source));
   }
 }
 
@@ -50,7 +50,7 @@ class NotMatcher<T extends Matcher> implements Matcher {
   NotMatcher(this.matcher);
 
   @override
-  bool test(Object element) {
-    return !matcher.test(element);
+  bool test(MatchableSource source) {
+    return !matcher.test(source);
   }
 }
