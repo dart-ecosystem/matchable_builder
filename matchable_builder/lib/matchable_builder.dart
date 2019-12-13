@@ -30,3 +30,5 @@ export 'package:matchable_builder/src/matcher/element_name_suffix_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_field_annotation_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_method_annotation_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_constructor_annotation_matcher.dart';
+export 'package:matchable_builder/src/matcher/class_element_super_type_matcher.dart';
+export 'package:matchable_builder/src/matcher/class_element_direct_super_type_matcher.dart';

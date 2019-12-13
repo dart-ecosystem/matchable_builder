@@ -3,7 +3,7 @@ import 'package:matchable_builder/matchable_builder.dart';
 import 'package:matchable_builder/src/matchable_source.dart';
 import 'package:source_gen/source_gen.dart';
 
-class ClassElementFieldAnnotationMatcher<T> extends Matcher {
+class ClassElementFieldAnnotationMatcher<T> implements Matcher {
   TypeChecker get _annotationTypeChecker => TypeChecker.fromRuntime(T);
 
   @override
