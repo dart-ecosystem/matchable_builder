@@ -1,1 +1,2 @@
+@deprecated
 class F {}

@@ -13,8 +13,19 @@ class DemoBuilder extends MatchableBuilder {
   Matcher get matcher => Matcher.and([
         // every thing
         FilenameExtensionMatcher('.dart'),
+        ClassElementSuperTypeMatcher<Object>(),
+        // exclude builder.dart
+        ClassElementDirectSuperTypeMatcher<Object>(),
+        // exclude file outside lib/
+        FileSchemaMatcher('package'),
+        // exclude i
+        Matcher.not(ClassElementAssignableFromMatcher<Exception>()),
+        // exclude h
+        Matcher.not(ClassElementInterfaceMatcher<Exception>()),
+        // exclude g
+        FilenameExactExtensionMatcher('.dart'),
         // exclude f
-        ElementAnnotationMatcher<Deprecated>(),
+        Matcher.not(ElementAnnotationMatcher<Deprecated>()),
         // exclude e
         ElementTypeMatcher<ClassElement>(),
         // exclude d
