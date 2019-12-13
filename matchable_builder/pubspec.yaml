@@ -1,7 +1,7 @@
 name: matchable_builder
 description: >
   Matchable builder used to build new files from existing ones.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/dart-ecosystem/matchable_builder
 author: Copydog <775150@qq.com>
 

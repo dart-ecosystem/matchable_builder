@@ -27,6 +27,7 @@ export 'package:matchable_builder/src/matcher/element_name_prefix_matcher.dart';
 export 'package:matchable_builder/src/matcher/element_name_suffix_matcher.dart';
 
 // class element matchers
+export 'package:matchable_builder/src/matcher/class_element_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_field_annotation_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_method_annotation_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_constructor_annotation_matcher.dart';
