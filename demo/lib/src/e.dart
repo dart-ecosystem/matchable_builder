@@ -1,2 +1,2 @@
 @deprecated
-class Aa {}
+void e() {}

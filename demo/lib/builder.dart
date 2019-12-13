@@ -11,10 +11,18 @@ class DemoBuilder extends MatchableBuilder {
 
   @override
   Matcher get matcher => Matcher.and([
+        // every thing
         FilenameExtensionMatcher('.dart'),
+        // exclude f
         ElementAnnotationMatcher<Deprecated>(),
-        ElementNamePrefixMatcher('A'),
-        ElementNameSuffixMatcher('a'),
+        // exclude e
+        ElementTypeMatcher<ClassElement>(),
+        // exclude d
+        Matcher.not(ClassElementFieldAnnotationMatcher<Deprecated>()),
+        // exclude c
+        Matcher.not(ClassElementMethodAnnotationMatcher<Deprecated>()),
+        // exclude b
+        Matcher.not(ClassElementConstructorAnnotationMatcher<Deprecated>()),
       ]);
 
   @override

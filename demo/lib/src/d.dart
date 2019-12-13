@@ -1,5 +1,5 @@
 @deprecated
-class B {
+class D {
   @deprecated
-  B();
+  int value;
 }
