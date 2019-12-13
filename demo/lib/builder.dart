@@ -18,6 +18,12 @@ class DemoBuilder extends MatchableBuilder {
         ClassElementDirectSuperTypeMatcher<Object>(),
         // exclude file outside lib/
         FileSchemaMatcher('package'),
+        // exclude j
+        ClassElementMatcher(
+          shouldBeConcrete: true,
+          shouldBeClass: true,
+          shouldBePublic: true,
+        ),
         // exclude i
         Matcher.not(ClassElementAssignableFromMatcher<Exception>()),
         // exclude h
