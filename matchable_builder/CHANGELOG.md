@@ -1,3 +1,6 @@
+## 0.3.0
+- Add more matchers
+
 ## 0.2.0
 - Redo Matcher
 - Add more matchers
