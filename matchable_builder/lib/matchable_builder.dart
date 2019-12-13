@@ -11,12 +11,13 @@ export 'package:matchable_builder/src/matcher/always_true_matcher.dart';
 export 'package:matchable_builder/src/matcher/always_false_matcher.dart';
 
 // build step matchers
+export 'package:matchable_builder/src/matcher/filename_exact_extension_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_extension_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_prefix_matcher.dart';
 export 'package:matchable_builder/src/matcher/filename_suffix_matcher.dart';
 export 'package:matchable_builder/src/matcher/functional_matcher.dart';
-export 'package:matchable_builder/src/matcher/package_matcher.dart';
+export 'package:matchable_builder/src/matcher/file_schema_matcher.dart';
 
 // element matchers
 export 'package:matchable_builder/src/matcher/element_annotation_matcher.dart';
