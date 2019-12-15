@@ -1,3 +1,6 @@
+## 0.3.1
+- Extra exports
+
 ## 0.3.0
 - Add more matchers
 
