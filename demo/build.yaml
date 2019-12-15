@@ -1,7 +1,13 @@
 builders:
-  demo|1:
+  demo|collector:
     import: 'package:demo/builder.dart'
-    builder_factories: ['demoBuilder']
-    build_extensions: { '.dart': ['.demo.dart'] }
+    builder_factories: ['demoCollector']
+    build_extensions: { '.dart': ['.demo.json'] }
+    auto_apply: root_package
+    build_to: cache
+  demo|combiner:
+    import: 'package:demo/builder.dart'
+    builder_factories: ['demoCombiner']
+    build_extensions: { '.demo.json': ['.demo.dart'] }
     auto_apply: root_package
     build_to: source
