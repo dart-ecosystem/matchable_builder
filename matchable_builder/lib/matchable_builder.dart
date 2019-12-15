@@ -37,5 +37,12 @@ export 'package:matchable_builder/src/matcher/class_element_direct_super_type_ma
 export 'package:matchable_builder/src/matcher/class_element_assignable_from_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_interface_matcher.dart';
 
+// cache related
+export 'package:matchable_builder/src/support/matchable_combining_builder.dart';
+export 'package:matchable_builder/src/cache/cache.dart';
+
+// helpers
+export 'package:matchable_builder/src/helper/cache_helper.dart';
+
 // dependencies
 export 'package:analyzer/dart/element/element.dart';

@@ -1,5 +1,5 @@
 # Matchable Builder
-Matchable builder used to build new files from existing ones.
+Matchable builder provides a easier way to find files that you want generate code from.
 
 ## Usage
 ```dart
