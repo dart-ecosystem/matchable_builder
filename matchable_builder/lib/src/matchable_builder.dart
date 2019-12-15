@@ -2,13 +2,12 @@ import 'dart:async';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:matchable_builder/src/matcher/always_true_matcher.dart';
 import 'package:matchable_builder/src/matcher/matcher.dart';
 import 'package:matchable_builder/src/matchable_source.dart';
 import 'package:source_gen/source_gen.dart';
 
 abstract class MatchableBuilder extends Builder {
-  Matcher get matcher => AlwaysTrueMatcher();
+  Matcher get matcher;
 
   FutureOr<void> generate(List<Element> elements, BuildStep buildStep);
 
