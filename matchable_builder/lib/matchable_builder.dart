@@ -36,3 +36,6 @@ export 'package:matchable_builder/src/matcher/class_element_super_type_matcher.d
 export 'package:matchable_builder/src/matcher/class_element_direct_super_type_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_assignable_from_matcher.dart';
 export 'package:matchable_builder/src/matcher/class_element_interface_matcher.dart';
+
+// dependencies
+export 'package:analyzer/dart/element/element.dart';
