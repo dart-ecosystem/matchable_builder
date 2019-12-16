@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:matchable_builder/src/matchable_base_builder.dart';
+import 'package:matchable_builder/src/abstract_matchable_builder.dart';
 
-abstract class MatchableBuilder extends MatchableBaseBuilder {
+abstract class MatchableBuilder extends AbstractMatchableBuilder {
   MatchableBuilder(BuilderOptions options) : super(options);
 
   @override

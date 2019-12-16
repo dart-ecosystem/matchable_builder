@@ -6,14 +6,14 @@ import 'package:matchable_builder/src/matchable_source.dart';
 import 'package:matchable_builder/src/matcher/matcher.dart';
 import 'package:source_gen/source_gen.dart';
 
-abstract class MatchableBaseBuilder extends Builder {
+abstract class AbstractMatchableBuilder extends Builder {
   Matcher get matcher;
 
   FutureOr<void> runGenerate(List<Element> elements, BuildStep buildStep);
 
   BuilderOptions options;
 
-  MatchableBaseBuilder(this.options);
+  AbstractMatchableBuilder(this.options);
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
