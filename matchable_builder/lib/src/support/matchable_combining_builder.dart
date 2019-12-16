@@ -14,17 +14,17 @@ typedef Object CacheResolver(Map<String, dynamic> json);
 abstract class MatchableCombiningBuilder extends MatchableBaseBuilder {
   Matcher get matcher => AlwaysTrueMatcher();
 
-  Map<String, CacheResolver> get cacheResolveMap;
+  Map<String, CacheResolver> get resolveCaches;
 
   MatchableCombiningBuilder(BuilderOptions options) : super(options);
 
-  FutureOr<void> generate(Map<String, List<Object>> resolvedCache, BuildStep buildStep);
+  FutureOr<void> generate(Map<String, List<Object>> resolvedCaches, BuildStep buildStep);
 
   @override
   FutureOr<void> runGenerate(List<Element> elements, BuildStep buildStep) async {
     final Map<String, List<Object>> resolvedCache = {};
     final cacheHelper = CacheHelper(buildStep);
-    for (var entry in cacheResolveMap.entries) {
+    for (var entry in resolveCaches.entries) {
       final assets = await cacheHelper.readAssets(entry.key);
       final resolver = entry.value;
       resolvedCache[entry.key] = assets.map(json.decode).map((e) => resolver(e)).toList();
