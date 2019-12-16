@@ -8,7 +8,7 @@ class DemoCache extends Cache {
     @required this.classNames,
   });
 
-  static Cache fromJson(Map<String, Object> json) {
+  static DemoCache fromJson(Map<String, Object> json) {
     return DemoCache(
       classNames: List<String>.from(json["classNames"]),
     );

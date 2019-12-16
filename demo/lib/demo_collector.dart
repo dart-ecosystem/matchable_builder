@@ -47,6 +47,9 @@ class DemoCollector extends MatchableBuilder {
 
   @override
   FutureOr<void> generate(List<Element> elements, BuildStep buildStep) async {
+    if (elements.isEmpty) {
+      return null;
+    }
     print('${buildStep.inputId.path} | ${elements}');
     final cacheHelper = CacheHelper(buildStep);
     final cache = DemoCache(classNames: elements.map((e) => e.name).toList());
