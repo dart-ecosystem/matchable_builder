@@ -9,7 +9,7 @@ import 'package:matchable_builder/src/matchable_base_builder.dart';
 import 'package:matchable_builder/src/matcher/always_true_matcher.dart';
 import 'package:matchable_builder/src/matcher/matcher.dart';
 
-typedef Cache CacheResolver(Map<String, dynamic> json);
+typedef Object CacheResolver(Map<String, dynamic> json);
 
 abstract class MatchableCombiningBuilder extends MatchableBaseBuilder {
   Matcher get matcher => AlwaysTrueMatcher();

@@ -1,3 +1,7 @@
+## 0.4.0
+- Added MatchableCombingBuilder
+- Extract MatchableBaseBuilder
+
 ## 0.3.1
 - Extra exports
 

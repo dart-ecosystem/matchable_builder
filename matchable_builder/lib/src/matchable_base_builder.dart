@@ -22,7 +22,7 @@ abstract class MatchableBaseBuilder extends Builder {
 
     // abort if library can't be resolved
     if (library == null) {
-      return;
+      return runGenerate([], buildStep);
     }
 
     final matchableSource = MatchableSource()
@@ -34,10 +34,6 @@ abstract class MatchableBaseBuilder extends Builder {
     final validElements = libraryReader.allElements.where((element) {
       return matcher.test(matchableSource..element = element);
     }).toList();
-
-    if (validElements.isEmpty) {
-      return;
-    }
 
     // generate
     await runGenerate(validElements, buildStep);
