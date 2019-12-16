@@ -1,5 +1,8 @@
+## 0.4.1
+- Redesign MatchableCombiningBuilder
+
 ## 0.4.0
-- Added MatchableCombingBuilder
+- Added MatchableCombiningBuilder
 - Extract MatchableBaseBuilder
 
 ## 0.3.1

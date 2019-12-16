@@ -14,13 +14,13 @@ class DemoCombiner extends MatchableCombiningBuilder {
       };
 
   @override
-  Map<String, CacheResolver> get cacheResolveMap => {
+  Map<String, CacheResolver> get resolveCaches => {
         "**/*.demo.json": DemoCache.fromJson,
       };
 
   @override
-  FutureOr<void> generate(Map<String, List<Object>> resolvedCache, BuildStep buildStep) {
-    List<Object> demoCaches = resolvedCache["**/*.demo.json"];
+  FutureOr<void> generate(Map<String, List<Object>> resolvedCaches, BuildStep buildStep) {
+    List<Object> demoCaches = resolvedCaches["**/*.demo.json"];
     print(demoCaches);
   }
 }
