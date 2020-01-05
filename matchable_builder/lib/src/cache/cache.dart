@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -8,6 +9,7 @@ abstract class Cache {
 
   @override
   String toString() {
-    return json.encode(toJson());
+    var rawString = json.encode(toJson());
+    return DartFormatter().format(rawString);
   }
 }
