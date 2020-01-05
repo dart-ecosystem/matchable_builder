@@ -3,7 +3,6 @@ description: >
   Matchable builder provides a easier way to find files that you want generate code from.
 version: 0.4.2
 homepage: https://github.com/dart-ecosystem/matchable_builder
-author: Copydog <775150@qq.com>
 
 environment:
   sdk: '>=2.4.0 <3.0.0'

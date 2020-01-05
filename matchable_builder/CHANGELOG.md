@@ -1,3 +1,6 @@
+## 0.4.2
+- Automatically format cache output
+
 ## 0.4.1
 - Redesign MatchableCombiningBuilder
 
