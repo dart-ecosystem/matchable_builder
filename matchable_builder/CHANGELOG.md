@@ -1,3 +1,6 @@
+## 0.4.2+1
+- Disable formatter
+
 ## 0.4.2
 - Automatically format cache output
 
