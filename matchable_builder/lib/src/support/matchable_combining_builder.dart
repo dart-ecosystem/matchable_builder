@@ -18,10 +18,12 @@ abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
 
   MatchableCombiningBuilder(BuilderOptions options) : super(options);
 
-  FutureOr<void> generate(Map<String, List<Object>> resolvedCaches, BuildStep buildStep);
+  FutureOr<void> generate(
+      LibraryElement library, Map<String, List<Object>> resolvedCaches, BuildStep buildStep);
 
   @override
-  FutureOr<void> runGenerate(List<Element> elements, BuildStep buildStep) async {
+  FutureOr<void> runGenerate(
+      LibraryElement library, List<Element> elements, BuildStep buildStep) async {
     final Map<String, List<Object>> resolvedCache = {};
     final cacheHelper = CacheHelper(buildStep);
     for (var entry in resolveCaches.entries) {
@@ -30,6 +32,6 @@ abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
       resolvedCache[entry.key] = assets.map(json.decode).map((e) => resolver(e)).toList();
     }
 
-    await generate(resolvedCache, buildStep);
+    await generate(library, resolvedCache, buildStep);
   }
 }

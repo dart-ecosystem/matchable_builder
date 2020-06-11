@@ -46,7 +46,8 @@ class DemoCollector extends MatchableBuilder {
       };
 
   @override
-  FutureOr<void> generate(List<Element> elements, BuildStep buildStep) async {
+  FutureOr<void> generate(
+      LibraryElement library, List<Element> elements, BuildStep buildStep) async {
     if (elements.isEmpty) {
       return null;
     }

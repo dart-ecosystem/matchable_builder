@@ -20,8 +20,8 @@ class MyBuilder extends MatchableBuilder {
       };
 
   @override
-  FutureOr<void> generate(List<Element> elements, BuildStep buildStep) {
-    // your logic code here
+  FutureOr<void> generate(LibraryElement library, List<Element> elements, BuildStep buildStep) {
+    // TODO: implement generate
     return null;
   }
 }

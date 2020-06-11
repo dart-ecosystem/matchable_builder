@@ -8,9 +8,9 @@ abstract class MatchableBuilder extends AbstractMatchableBuilder {
   MatchableBuilder(BuilderOptions options) : super(options);
 
   @override
-  FutureOr<void> runGenerate(List<Element> elements, BuildStep buildStep) {
-    return generate(elements, buildStep);
+  FutureOr<void> runGenerate(LibraryElement library, List<Element> elements, BuildStep buildStep) {
+    return generate(library, elements, buildStep);
   }
 
-  FutureOr<void> generate(List<Element> elements, BuildStep buildStep);
+  FutureOr<void> generate(LibraryElement library, List<Element> elements, BuildStep buildStep);
 }

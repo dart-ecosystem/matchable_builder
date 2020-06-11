@@ -9,7 +9,7 @@ import 'package:source_gen/source_gen.dart';
 abstract class AbstractMatchableBuilder extends Builder {
   Matcher get matcher;
 
-  FutureOr<void> runGenerate(List<Element> elements, BuildStep buildStep);
+  FutureOr<void> runGenerate(LibraryElement library, List<Element> elements, BuildStep buildStep);
 
   BuilderOptions options;
 
@@ -22,7 +22,7 @@ abstract class AbstractMatchableBuilder extends Builder {
 
     // abort if library can't be resolved
     if (library == null) {
-      return runGenerate([], buildStep);
+      return runGenerate(library, [], buildStep);
     }
 
     final matchableSource = MatchableSource()
@@ -36,7 +36,7 @@ abstract class AbstractMatchableBuilder extends Builder {
     }).toList();
 
     // generate
-    await runGenerate(validElements, buildStep);
+    await runGenerate(library, validElements, buildStep);
   }
 
   Future<LibraryElement> _getLibrary(BuildStep buildStep) async {

@@ -1,3 +1,9 @@
+## 0.5.0
+- Passing library to generator
+
+## 0.4.2+2
+- Increase capability
+
 ## 0.4.2+1
 - Disable formatter
 

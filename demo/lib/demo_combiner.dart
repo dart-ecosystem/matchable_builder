@@ -19,7 +19,8 @@ class DemoCombiner extends MatchableCombiningBuilder {
       };
 
   @override
-  FutureOr<void> generate(Map<String, List<Object>> resolvedCaches, BuildStep buildStep) {
+  FutureOr<void> generate(
+      LibraryElement library, Map<String, List<Object>> resolvedCaches, BuildStep buildStep) {
     List<Object> demoCaches = resolvedCaches["**/*.demo.json"];
     print(demoCaches);
   }
