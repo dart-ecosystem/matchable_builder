@@ -46,3 +46,4 @@ export 'package:matchable_builder/src/helper/cache_helper.dart';
 
 // dependencies
 export 'package:analyzer/dart/element/element.dart';
+export 'package:analyzer/dart/element/type.dart';
