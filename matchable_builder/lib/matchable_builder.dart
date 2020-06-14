@@ -38,7 +38,8 @@ export 'package:matchable_builder/src/matcher/class_element_assignable_from_matc
 export 'package:matchable_builder/src/matcher/class_element_interface_matcher.dart';
 
 // cache related
-export 'package:matchable_builder/src/support/matchable_combining_builder.dart';
+export 'package:matchable_builder/src/matchable_combining_builder.dart';
+export 'package:matchable_builder/src/matchable_part_builder.dart';
 export 'package:matchable_builder/src/cache/cache.dart';
 
 // helpers
@@ -47,3 +48,7 @@ export 'package:matchable_builder/src/helper/cache_helper.dart';
 // dependencies
 export 'package:analyzer/dart/element/element.dart';
 export 'package:analyzer/dart/element/type.dart';
+
+// support
+export 'package:matchable_builder/src/support/RequiredImport.dart';
+export 'package:matchable_builder/src/support/RequiredPart.dart';
