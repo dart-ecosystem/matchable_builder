@@ -3,9 +3,8 @@ import 'dart:convert';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:matchable_builder/src/cache/cache.dart';
-import 'package:matchable_builder/src/helper/cache_helper.dart';
 import 'package:matchable_builder/src/abstract_matchable_builder.dart';
+import 'package:matchable_builder/src/helper/cache_helper.dart';
 import 'package:matchable_builder/src/matcher/always_true_matcher.dart';
 import 'package:matchable_builder/src/matcher/matcher.dart';
 
@@ -23,7 +22,10 @@ abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
 
   @override
   FutureOr<void> runGenerate(
-      LibraryElement library, List<Element> elements, BuildStep buildStep) async {
+    LibraryElement library,
+    List<Element> elements,
+    BuildStep buildStep,
+  ) async {
     final Map<String, List<Object>> resolvedCache = {};
     final cacheHelper = CacheHelper(buildStep);
     for (var entry in resolveCaches.entries) {
