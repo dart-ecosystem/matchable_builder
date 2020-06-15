@@ -1,15 +1,13 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:matchable_builder/src/matcher/matcher.dart';
-import 'package:matchable_builder/src/matchable_source.dart';
+import 'package:matchable_builder/src/matcher/Matcher.dart';
 
-class ElementNameMatcher implements Matcher {
+class ElementNameMatcher implements Matcher<Element> {
   Pattern namePattern;
 
   ElementNameMatcher(this.namePattern);
 
   @override
-  bool test(MatchableSource source) {
-    final element = source.element;
+  bool test(Element element) {
     if (namePattern is String) {
       return element.name == namePattern;
     }

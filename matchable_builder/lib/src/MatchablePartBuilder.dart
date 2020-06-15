@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/src/builder/build_step.dart';
 import 'package:build/src/builder/builder.dart';
-import 'package:matchable_builder/src/abstract_matchable_builder.dart';
+import 'package:matchable_builder/src/AbstractMatchableBuilder.dart';
 import 'package:matchable_builder/src/support/RequiredImport.dart';
 import 'package:matchable_builder/src/support/RequiredPart.dart';
 

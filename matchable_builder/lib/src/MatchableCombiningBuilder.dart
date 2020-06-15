@@ -3,15 +3,15 @@ import 'dart:convert';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:matchable_builder/src/abstract_matchable_builder.dart';
+import 'package:matchable_builder/src/AbstractMatchableBuilder.dart';
 import 'package:matchable_builder/src/helper/cache_helper.dart';
-import 'package:matchable_builder/src/matcher/always_true_matcher.dart';
-import 'package:matchable_builder/src/matcher/matcher.dart';
+import 'package:matchable_builder/src/matcher/Matcher.dart';
+import 'package:matchable_builder/src/matcher/general/AlwaysTrueMatcher.dart';
 
 typedef Object CacheResolver(Map<String, dynamic> json);
 
 abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
-  Matcher get matcher => AlwaysTrueMatcher();
+  Matcher<BuildStep> get fileMatcher => AlwaysTrueMatcher();
 
   Map<String, CacheResolver> get resolveCaches;
 

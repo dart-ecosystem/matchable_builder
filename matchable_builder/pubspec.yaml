@@ -6,7 +6,7 @@ homepage: https://github.com/dart-ecosystem/matchable_builder
 publish_to: https://pub.dev
 
 environment:
-  sdk: '>=2.4.0 <3.0.0'
+  sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
   analyzer: '>=0.36.0'

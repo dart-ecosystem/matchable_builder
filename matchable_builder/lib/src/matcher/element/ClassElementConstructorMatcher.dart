@@ -1,8 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:matchable_builder/src/matchable_source.dart';
-import 'package:matchable_builder/src/matcher/matcher.dart';
+import 'package:matchable_builder/src/matcher/Matcher.dart';
 
-class ClassElementConstructorMatcher implements Matcher {
+class ClassElementConstructorMatcher implements Matcher<Element> {
   bool shouldHaveDefault;
   bool shouldHaveNoneDefault;
   bool shouldHavePublic;
@@ -22,12 +21,12 @@ class ClassElementConstructorMatcher implements Matcher {
   });
 
   @override
-  bool test(MatchableSource source) {
-    if (source.element is! ClassElement) {
+  bool test(Element element) {
+    if (element is! ClassElement) {
       return false;
     }
 
-    final ClassElement classElement = source.element;
+    final ClassElement classElement = element;
     final constructors = classElement.constructors;
 
     // check shouldHaveDefault

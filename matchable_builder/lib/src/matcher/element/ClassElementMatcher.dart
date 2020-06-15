@@ -1,8 +1,7 @@
-import 'package:analyzer/dart/element/element.dart';
-import 'package:matchable_builder/src/matchable_source.dart';
-import 'package:matchable_builder/src/matcher/matcher.dart';
+import 'package:matchable_builder/matchable_builder.dart';
+import 'package:matchable_builder/src/matcher/Matcher.dart';
 
-class ClassElementMatcher implements Matcher {
+class ClassElementMatcher implements Matcher<Element> {
   bool shouldBeAbstract;
   bool shouldBeConcrete;
   bool shouldBeEnum;
@@ -22,12 +21,12 @@ class ClassElementMatcher implements Matcher {
   });
 
   @override
-  bool test(MatchableSource source) {
-    if (source.element is! ClassElement) {
+  bool test(Element element) {
+    if (element is! ClassElement) {
       return false;
     }
 
-    final ClassElement classElement = source.element;
+    final ClassElement classElement = element;
 
     // check abstract
     if (shouldBeAbstract && !classElement.isAbstract) {

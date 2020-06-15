@@ -1,45 +1,43 @@
 library matchable_builder;
 
 // builder
-export 'package:matchable_builder/src/matchable_builder.dart';
+export 'package:matchable_builder/src/MatchableBuilder.dart';
+export 'package:matchable_builder/src/MatchableCombiningBuilder.dart';
+export 'package:matchable_builder/src/MatchablePartBuilder.dart';
 
 // base matcher
-export 'package:matchable_builder/src/matcher/matcher.dart';
+export 'package:matchable_builder/src/matcher/Matcher.dart';
 
-// general matchers
-export 'package:matchable_builder/src/matcher/always_true_matcher.dart';
-export 'package:matchable_builder/src/matcher/always_false_matcher.dart';
+// general matcher
+export 'package:matchable_builder/src/matcher/general/AlwaysTrueMatcher.dart';
+export 'package:matchable_builder/src/matcher/general/AlwaysFalseMatcher.dart';
+export 'package:matchable_builder/src/matcher/general/AndMatcher.dart';
+export 'package:matchable_builder/src/matcher/general/PredicateMatcher.dart';
 
-// build step matchers
-export 'package:matchable_builder/src/matcher/filename_exact_extension_matcher.dart';
-export 'package:matchable_builder/src/matcher/filename_extension_matcher.dart';
-export 'package:matchable_builder/src/matcher/filename_matcher.dart';
-export 'package:matchable_builder/src/matcher/filename_prefix_matcher.dart';
-export 'package:matchable_builder/src/matcher/filename_suffix_matcher.dart';
-export 'package:matchable_builder/src/matcher/functional_matcher.dart';
-export 'package:matchable_builder/src/matcher/file_schema_matcher.dart';
+// file matcher
+export 'package:matchable_builder/src/matcher/file/FilenameExactExtensionMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/FilenameExtensionMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/FilenameMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/FilenamePrefixMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/FilenameSuffixMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/FileSchemaMatcher.dart';
 
-// element matchers
-export 'package:matchable_builder/src/matcher/element_annotation_matcher.dart';
-export 'package:matchable_builder/src/matcher/element_type_matcher.dart';
-export 'package:matchable_builder/src/matcher/element_name_matcher.dart';
-export 'package:matchable_builder/src/matcher/element_name_prefix_matcher.dart';
-export 'package:matchable_builder/src/matcher/element_name_suffix_matcher.dart';
-
-// class element matchers
-export 'package:matchable_builder/src/matcher/class_element_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_field_annotation_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_method_annotation_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_constructor_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_constructor_annotation_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_super_type_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_direct_super_type_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_assignable_from_matcher.dart';
-export 'package:matchable_builder/src/matcher/class_element_interface_matcher.dart';
+// element matcher
+export 'package:matchable_builder/src/matcher/element/ClassElementAssignableFromMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementConstructorAnnotationMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementConstructorMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementFieldAnnotationMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementInterfaceMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementMethodAnnotationMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ClassElementSuperTypeMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ElementAnnotationMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ElementNameMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ElementNameSuffixMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ElementNamePrefixMatcher.dart';
+export 'package:matchable_builder/src/matcher/element/ElementTypeMatcher.dart';
 
 // cache related
-export 'package:matchable_builder/src/matchable_combining_builder.dart';
-export 'package:matchable_builder/src/matchable_part_builder.dart';
 export 'package:matchable_builder/src/cache/cache.dart';
 
 // helpers

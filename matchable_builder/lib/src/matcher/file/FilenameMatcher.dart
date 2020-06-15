@@ -1,16 +1,16 @@
-import 'package:build/src/builder/build_step.dart';
-import 'package:matchable_builder/src/matcher/matcher.dart';
-import 'package:matchable_builder/src/matchable_source.dart';
+import 'dart:async';
 
-class FilenameMatcher implements Matcher {
+import 'package:matchable_builder/matchable_builder.dart';
+
+class FilenameMatcher implements Matcher<BuildStep> {
   Pattern filenamePattern;
 
   FilenameMatcher(this.filenamePattern);
 
   @override
-  bool test(MatchableSource source) {
-    final buildStep = source.buildStep;
+  FutureOr<bool> test(BuildStep buildStep) {
     final filename = buildStep.inputId.uri.pathSegments.last;
+
     if (filenamePattern is String) {
       return filenamePattern == filename;
     }

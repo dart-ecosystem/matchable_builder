@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:matchable_builder/src/matchable_source.dart';
-import 'package:matchable_builder/src/matcher/matcher.dart';
+import 'package:matchable_builder/src/matcher/Matcher.dart';
+import 'package:matchable_builder/src/matcher/general/AlwaysTrueMatcher.dart';
 import 'package:source_gen/source_gen.dart';
 
 abstract class AbstractMatchableBuilder extends Builder {
-  Matcher get matcher;
+  Matcher<BuildStep> get fileMatcher => AlwaysTrueMatcher();
+
+  Matcher<Element> get elementMatcher => AlwaysTrueMatcher();
 
   FutureOr<void> runGenerate(LibraryElement library, List<Element> elements, BuildStep buildStep);
 
@@ -17,6 +19,11 @@ abstract class AbstractMatchableBuilder extends Builder {
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
+    // continue when file passes file matcher
+    if (!fileMatcher.test(buildStep)) {
+      return;
+    }
+
     // prepare
     final library = await _getLibrary(buildStep);
 
@@ -25,14 +32,10 @@ abstract class AbstractMatchableBuilder extends Builder {
       return runGenerate(library, [], buildStep);
     }
 
-    final matchableSource = MatchableSource()
-      ..libraryElement = library
-      ..buildStep = buildStep;
-
     final libraryReader = LibraryReader(library);
 
     final validElements = libraryReader.allElements.where((element) {
-      return matcher.test(matchableSource..element = element);
+      return elementMatcher.test(element);
     }).toList();
 
     // generate
