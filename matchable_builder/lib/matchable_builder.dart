@@ -12,6 +12,8 @@ export 'package:matchable_builder/src/matcher/Matcher.dart';
 export 'package:matchable_builder/src/matcher/general/AlwaysTrueMatcher.dart';
 export 'package:matchable_builder/src/matcher/general/AlwaysFalseMatcher.dart';
 export 'package:matchable_builder/src/matcher/general/AndMatcher.dart';
+export 'package:matchable_builder/src/matcher/general/OrMatcher.dart';
+export 'package:matchable_builder/src/matcher/general/NotMatcher.dart';
 export 'package:matchable_builder/src/matcher/general/PredicateMatcher.dart';
 
 // file matcher

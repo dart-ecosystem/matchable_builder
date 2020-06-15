@@ -1,58 +1,21 @@
 import 'dart:async';
 
-import 'package:matchable_builder/src/matchable_source.dart';
+import 'package:matchable_builder/src/matcher/general/AndMatcher.dart';
+import 'package:matchable_builder/src/matcher/general/NotMatcher.dart';
+import 'package:matchable_builder/src/matcher/general/OrMatcher.dart';
 
 abstract class Matcher<T> {
   FutureOr<bool> test(T source);
 
-  static M and<M extends Matcher>(List<M> matchers) {
-//    return AndMatcher<T>(matchers) as T;
+  static Matcher<T> and<T>(List<Matcher<T>> matchers) {
+    return AndMatcher<T>(matchers);
   }
 
-  static M or<M extends Matcher>(List<M> matchers) {
-//    return OrMatcher<T>(matchers) as T;
+  static Matcher<T> or<T>(List<Matcher<T>> matchers) {
+    return OrMatcher<T>(matchers);
   }
 
-  static M not<M extends Matcher>(M matcher) {
-//    return NotMatcher<T>(matcher) as T;
+  static Matcher<T> not<T>(Matcher<T> matcher) {
+    return NotMatcher<T>(matcher);
   }
 }
-//
-//class AndMatcher<T extends Matcher> implements Matcher {
-//  List<T> matchers;
-//
-//  AndMatcher(this.matchers);
-//
-//  @override
-//  bool test(MatchableSource source) {
-//    if (matchers == null) {
-//      return true;
-//    }
-//    return matchers.every((matcher) => matcher.test(source));
-//  }
-//}
-//
-//class OrMatcher<T extends Matcher> implements Matcher {
-//  List<T> matchers;
-//
-//  OrMatcher(this.matchers);
-//
-//  @override
-//  bool test(MatchableSource source) {
-//    if (matchers == null) {
-//      return true;
-//    }
-//    return matchers.any((matcher) => matcher.test(source));
-//  }
-//}
-//
-//class NotMatcher<T extends Matcher> implements Matcher {
-//  T matcher;
-//
-//  NotMatcher(this.matcher);
-//
-//  @override
-//  bool test(MatchableSource source) {
-//    return !matcher.test(source);
-//  }
-//}
