@@ -53,3 +53,4 @@ export 'package:analyzer/dart/element/type.dart';
 // support
 export 'package:matchable_builder/src/support/RequiredImport.dart';
 export 'package:matchable_builder/src/support/RequiredPart.dart';
+export 'package:matchable_builder/src/support/ChangeExtensionPart.dart';
