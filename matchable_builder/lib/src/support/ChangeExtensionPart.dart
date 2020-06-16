@@ -9,8 +9,22 @@ class ChangeExtensionPart extends RequiredPart {
   }) : super(path: '');
 
   @override
-  String render(LibraryElement library, List<Element> elements, BuildStep buildStep) {
+  String render(
+    LibraryElement library,
+    List<Element> elements,
+    BuildStep buildStep,
+  ) {
     final path = buildStep.inputId.changeExtension(extension).pathSegments.last;
     return 'part \'$path\';';
+  }
+
+  @override
+  bool match(
+    CompilationUnitElement part,
+    LibraryElement library,
+    List<Element> elements,
+    BuildStep buildStep,
+  ) {
+    return part.uri == buildStep.inputId.changeExtension(extension).pathSegments.last;
   }
 }

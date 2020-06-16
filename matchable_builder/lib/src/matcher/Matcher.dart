@@ -18,4 +18,8 @@ abstract class Matcher<T> {
   static Matcher<T> not<T>(Matcher<T> matcher) {
     return NotMatcher<T>(matcher);
   }
+
+  static Matcher<T> nor<T>(List<Matcher<T>> matchers) {
+    return NotMatcher<T>(OrMatcher<T>(matchers));
+  }
 }

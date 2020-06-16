@@ -63,7 +63,10 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
   }
 
   Future<void> _ensureRequiredParts(
-      LibraryElement library, List<Element> elements, BuildStep buildStep) async {
+    LibraryElement library,
+    List<Element> elements,
+    BuildStep buildStep,
+  ) async {
     final parts = [...requiredParts];
 
     if (parts.isEmpty) {
@@ -73,7 +76,7 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
     final lines = (await buildStep.readAsString(buildStep.inputId)).split('\n');
 
     for (final part in parts) {
-      final shouldGenerate = !library.imports.any((p) => p.uri == part);
+      final shouldGenerate = !library.parts.any((p) => part.match(p, library, elements, buildStep));
       if (shouldGenerate) {
         var lastImportLineNumber = -1;
         for (var i = 0; i < lines.length; i++) {

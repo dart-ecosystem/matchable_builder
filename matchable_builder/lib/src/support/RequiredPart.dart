@@ -11,7 +11,20 @@ class RequiredPart implements Renderable {
   });
 
   @override
-  String render(LibraryElement library, List<Element> elements, BuildStep buildStep) {
+  String render(
+    LibraryElement library,
+    List<Element> elements,
+    BuildStep buildStep,
+  ) {
     return 'part \'$path\';';
+  }
+
+  bool match(
+    CompilationUnitElement part,
+    LibraryElement library,
+    List<Element> elements,
+    BuildStep buildStep,
+  ) {
+    return part.uri == path;
   }
 }
