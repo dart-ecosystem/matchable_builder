@@ -1,6 +1,6 @@
 import 'package:build/build.dart';
 import 'package:glob/glob.dart';
-import 'package:matchable_builder/src/cache/cache.dart';
+import 'package:matchable_builder/src/cache/Cache.dart';
 
 class CacheHelper {
   BuildStep _buildStep;

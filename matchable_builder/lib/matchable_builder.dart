@@ -40,10 +40,10 @@ export 'package:matchable_builder/src/matcher/element/ElementNamePrefixMatcher.d
 export 'package:matchable_builder/src/matcher/element/ElementTypeMatcher.dart';
 
 // cache related
-export 'package:matchable_builder/src/cache/cache.dart';
+export 'package:matchable_builder/src/cache/Cache.dart';
 
 // helpers
-export 'package:matchable_builder/src/helper/cache_helper.dart';
+export 'package:matchable_builder/src/helper/CacheHelper.dart';
 
 // dependencies
 export 'package:build/build.dart';
