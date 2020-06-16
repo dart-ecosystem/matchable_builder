@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:analyzer/dart/element/element.dart';
 import 'package:matchable_builder/matchable_builder.dart';
 import 'package:source_gen/source_gen.dart';
@@ -37,7 +35,7 @@ class ClassElementSuperTypeMatcher<T> implements Matcher<Element> {
   }
 
   @override
-  FutureOr<bool> test(Element element) {
+  bool test(Element element) {
     if (direct) {
       return testDirect(element);
     }

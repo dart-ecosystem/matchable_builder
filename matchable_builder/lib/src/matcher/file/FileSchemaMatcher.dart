@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:matchable_builder/matchable_builder.dart';
 import 'package:matchable_builder/src/matcher/Matcher.dart';
 
@@ -9,7 +7,7 @@ class FileSchemaMatcher implements Matcher<BuildStep> {
   FileSchemaMatcher(this.schemaPattern);
 
   @override
-  FutureOr<bool> test(BuildStep buildStep) {
+  bool test(BuildStep buildStep) {
     final schema = buildStep.inputId.uri.scheme;
 
     if (schemaPattern is String) {

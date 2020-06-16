@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:matchable_builder/src/matcher/general/AndMatcher.dart';
 import 'package:matchable_builder/src/matcher/general/NotMatcher.dart';
 import 'package:matchable_builder/src/matcher/general/OrMatcher.dart';
 
 abstract class Matcher<T> {
-  FutureOr<bool> test(T source);
+  bool test(T source);
 
   static Matcher<T> and<T>(List<Matcher<T>> matchers) {
     return AndMatcher<T>(matchers);
