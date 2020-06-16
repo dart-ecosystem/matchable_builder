@@ -1,3 +1,7 @@
+##
+- Add MatchablePartBuilder
+- Rewrite matcher (matcher changed to fileMatcher and elementMatcher)
+
 ## 0.5.0
 - Passing library to generator
 

@@ -5,7 +5,6 @@ environment:
   sdk: '>=2.4.0 <3.0.0'
 
 dependencies:
-  build: ^1.2.2
   matchable_builder:
     path: ../matchable_builder
 

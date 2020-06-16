@@ -1,13 +1,20 @@
 builders:
-  demo|collector:
+#  demo|collector:
+#    import: 'package:demo/builder.dart'
+#    builder_factories: ['demoCollector']
+#    build_extensions: { '.dart': ['.demo.json'] }
+#    auto_apply: root_package
+#    build_to: cache
+#  demo|combiner:
+#    import: 'package:demo/builder.dart'
+#    builder_factories: ['demoCombiner']
+#    build_extensions: { '.demo.json': ['.demo.dart'] }
+#    auto_apply: root_package
+#    build_to: source
+  demo|part_generator:
     import: 'package:demo/builder.dart'
-    builder_factories: ['demoCollector']
-    build_extensions: { '.dart': ['.demo.json'] }
+    builder_factories: ['demoPartGenerator']
+    build_extensions: { '.dart': ['.test.g.part', '.test2.g.part', '.test3.g.part'] }
     auto_apply: root_package
     build_to: cache
-  demo|combiner:
-    import: 'package:demo/builder.dart'
-    builder_factories: ['demoCombiner']
-    build_extensions: { '.demo.json': ['.demo.dart'] }
-    auto_apply: root_package
-    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
