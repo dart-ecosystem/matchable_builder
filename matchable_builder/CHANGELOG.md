@@ -1,4 +1,4 @@
-##
+## 0.6.0
 - Add MatchablePartBuilder
 - Rewrite matcher (matcher changed to fileMatcher and elementMatcher)
 
