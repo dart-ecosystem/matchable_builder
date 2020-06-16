@@ -1,7 +1,7 @@
 name: matchable_builder
 description: >
   Matchable builder provides a easier way to find files that you want generate code from.
-version: 0.6.0
+version: 0.6.0+1
 homepage: https://github.com/dart-ecosystem/matchable_builder
 publish_to: https://pub.dev
 

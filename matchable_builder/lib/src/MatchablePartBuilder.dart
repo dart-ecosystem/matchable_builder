@@ -23,7 +23,7 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
   ) async {
     await _ensureRequiredImports(library, elements, buildStep);
     await _ensureRequiredParts(library, elements, buildStep);
-    generate(library, elements, buildStep);
+    await generate(library, elements, buildStep);
   }
 
   Future<void> _ensureRequiredImports(

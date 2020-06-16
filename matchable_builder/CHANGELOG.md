@@ -1,3 +1,6 @@
+## 0.6.0+1
+- Fix BuildStep access after generation complete
+
 ## 0.6.0
 - Add MatchablePartBuilder
 - Rewrite matcher (matcher changed to fileMatcher and elementMatcher)
