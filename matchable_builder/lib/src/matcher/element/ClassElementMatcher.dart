@@ -2,13 +2,13 @@ import 'package:matchable_builder/matchable_builder.dart';
 import 'package:matchable_builder/src/matcher/Matcher.dart';
 
 class ClassElementMatcher implements Matcher<Element> {
-  bool shouldBeAbstract;
-  bool shouldBeConcrete;
-  bool shouldBeEnum;
-  bool shouldBePrivate;
-  bool shouldBePublic;
-  bool shouldBeMixin;
-  bool shouldBeClass;
+  final bool shouldBeAbstract;
+  final bool shouldBeConcrete;
+  final bool shouldBeEnum;
+  final bool shouldBePrivate;
+  final bool shouldBePublic;
+  final bool shouldBeMixin;
+  final bool shouldBeClass;
 
   ClassElementMatcher({
     this.shouldBeAbstract = false,

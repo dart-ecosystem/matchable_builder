@@ -23,6 +23,8 @@ export 'package:matchable_builder/src/matcher/file/FilenameMatcher.dart';
 export 'package:matchable_builder/src/matcher/file/FilenamePrefixMatcher.dart';
 export 'package:matchable_builder/src/matcher/file/FilenameSuffixMatcher.dart';
 export 'package:matchable_builder/src/matcher/file/FileSchemaMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/PackageMatcher.dart';
+export 'package:matchable_builder/src/matcher/file/PackageNameMatcher.dart';
 
 // element matcher
 export 'package:matchable_builder/src/matcher/element/ClassElementAssignableFromMatcher.dart';

@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
+
+import 'package:glob/glob.dart';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
@@ -15,6 +18,8 @@ abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
 
   Map<String, CacheResolver> get resolveCaches;
 
+  bool get resolveForAllPackages => false;
+
   MatchableCombiningBuilder(BuilderOptions options) : super(options);
 
   FutureOr<void> generate(
@@ -27,13 +32,26 @@ abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
     BuildStep buildStep,
   ) async {
     final Map<String, List<Object>> resolvedCache = {};
-    final cacheHelper = CacheHelper(buildStep);
     for (var entry in resolveCaches.entries) {
-      final assets = await cacheHelper.readAssets(entry.key);
+      final assets = await findAssets(buildStep, entry.key);
       final resolver = entry.value;
       resolvedCache[entry.key] = assets.map(json.decode).map((e) => resolver(e)).toList();
     }
 
     await generate(library, resolvedCache, buildStep);
+  }
+
+  Future<List<String>> findAssets(BuildStep buildStep, String globPattern) async {
+    if (resolveForAllPackages == true) {
+      final files = Glob(globPattern, recursive: true)
+          .listSync(
+            root: '.dart_tool/build/generated',
+          )
+          .whereType<File>();
+
+      return files.map((f) => f.readAsStringSync()).toList();
+    }
+
+    return await CacheHelper(buildStep).readAssets(globPattern);
   }
 }
