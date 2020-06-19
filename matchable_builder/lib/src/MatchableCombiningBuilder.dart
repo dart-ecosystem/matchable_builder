@@ -26,7 +26,7 @@ abstract class MatchableCombiningBuilder extends AbstractMatchableBuilder {
       LibraryElement library, Map<String, List<Object>> resolvedCaches, BuildStep buildStep);
 
   @override
-  FutureOr<void> runGenerate(
+  Future<void> runGenerate(
     LibraryElement library,
     List<Element> elements,
     BuildStep buildStep,

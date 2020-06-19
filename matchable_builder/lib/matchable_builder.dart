@@ -3,6 +3,7 @@ library matchable_builder;
 // builder
 export 'package:matchable_builder/src/MatchableBuilder.dart';
 export 'package:matchable_builder/src/MatchableCombiningBuilder.dart';
+export 'package:matchable_builder/src/MatchableDependentBuilder.dart';
 export 'package:matchable_builder/src/MatchablePartBuilder.dart';
 
 // base matcher
