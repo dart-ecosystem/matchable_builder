@@ -1,16 +1,10 @@
 builders:
-#  demo|collector:
-#    import: 'package:demo/builder.dart'
-#    builder_factories: ['demoCollector']
-#    build_extensions: { '.dart': ['.demo.json'] }
-#    auto_apply: root_package
-#    build_to: cache
-#  demo|combiner:
-#    import: 'package:demo/builder.dart'
-#    builder_factories: ['demoCombiner']
-#    build_extensions: { '.demo.json': ['.demo.dart'] }
-#    auto_apply: root_package
-#    build_to: source
+  demo|combiner:
+    import: 'package:demo/builder.dart'
+    builder_factories: ['demoCombiner']
+    build_extensions: { '.dart': ['.demo.dart'] }
+    auto_apply: root_package
+    build_to: source
   demo|part_generator:
     import: 'package:demo/builder.dart'
     builder_factories: ['demoPartGenerator']
@@ -18,3 +12,7 @@ builders:
     auto_apply: root_package
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
+    defaults:
+      generate_for:
+        exclude:
+          - lib/*.dart

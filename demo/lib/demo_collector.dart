@@ -12,14 +12,20 @@ class DemoCollector extends MatchableBuilder {
   DemoCollector(BuilderOptions options) : super(options);
 
   @override
-  Matcher<BuildStep> get fileMatcher => Matcher.nor([
-        FilenameMatcher('builder.dart'),
-        FilenameMatcher('demo_collector.dart'),
-        FilenameMatcher('demo_cache.g.dart'),
-        FilenameMatcher('demo_combiner.dart'),
-        FilenameMatcher('demo_part_generator.dart'),
-        FilenameExtensionMatcher('g.dart'),
-      ]);
+  Matcher<BuildStep> fileMatcher = Matcher.and([
+    Matcher.nor([
+      FilenameMatcher('builder.dart'),
+      FilenameMatcher('demo_collector.dart'),
+      FilenameMatcher('demo_cache.g.dart'),
+      FilenameMatcher('demo_combiner.dart'),
+      FilenameMatcher('demo_part_generator.dart'),
+      FilenameExtensionMatcher('g.dart'),
+    ]),
+  ]);
+
+  Matcher<Element> elementMatcher = Matcher.and([
+    ClassElementMatcher(shouldBePublic: true),
+  ]);
 
 //  @override
 //  Matcher get matcher => Matcher.and([
@@ -59,14 +65,12 @@ class DemoCollector extends MatchableBuilder {
       };
 
   @override
-  FutureOr<void> generate(
-      LibraryElement library, List<Element> elements, BuildStep buildStep) async {
-//    if (elements.isEmpty) {
-//      return null;
-//    }
-//    print('${buildStep.inputId.path} | ${elements}');
-//    final cacheHelper = CacheHelper(buildStep);
-//    final cache = DemoCache(classNames: elements.map((e) => e.name).toList());
-//    await cacheHelper.writeAssetToExtension(".demo.json", cache);
+  Future<void> generate(LibraryElement library, List<Element> elements, BuildStep buildStep) async {
+    if (elements.isEmpty) {
+      return null;
+    }
+    final cacheHelper = CacheHelper(buildStep);
+    final cache = DemoCache(classNames: elements.map((e) => e.name).toList());
+    await cacheHelper.writeAssetToExtension(".demo.json", cache);
   }
 }
