@@ -1,3 +1,6 @@
+## 0.7.0
+- Add MatchableDependentBuilder
+
 ## 0.6.0+1
 - Fix BuildStep access after generation complete
 
