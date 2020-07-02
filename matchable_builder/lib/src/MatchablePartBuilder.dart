@@ -28,6 +28,7 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
 
   Future<void> _ensureRequiredImports(
       LibraryElement library, List<Element> elements, BuildStep buildStep) async {
+    var shouldWrite = false;
     final imports = [...requiredImports];
 
     if (imports.isEmpty) {
@@ -44,6 +45,7 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
       final shouldGenerate = !library.imports.any(
         (p) => p.uri == import.path && p.prefix?.name == import.prefix,
       );
+      shouldWrite |= shouldGenerate;
       if (shouldGenerate) {
         final libraryLineNumber = lines.indexWhere((line) => line.startsWith('library'));
 
@@ -57,9 +59,11 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
       }
     }
 
-    final file = File(buildStep.inputId.path);
-    final outputContent = lines.join('\n');
-    await file.writeAsString(outputContent, flush: true);
+    if (shouldWrite) {
+      final file = File(buildStep.inputId.path);
+      final outputContent = lines.join('\n');
+      await file.writeAsString(outputContent, flush: true);
+    }
   }
 
   Future<void> _ensureRequiredParts(
@@ -67,6 +71,7 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
     List<Element> elements,
     BuildStep buildStep,
   ) async {
+    var shouldWrite = false;
     final parts = [...requiredParts];
 
     if (parts.isEmpty) {
@@ -77,6 +82,7 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
 
     for (final part in parts) {
       final shouldGenerate = !library.parts.any((p) => part.match(p, library, elements, buildStep));
+      shouldWrite |= shouldGenerate;
       if (shouldGenerate) {
         var lastImportLineNumber = -1;
         for (var i = 0; i < lines.length; i++) {
@@ -95,9 +101,11 @@ abstract class MatchablePartBuilder extends AbstractMatchableBuilder {
       }
     }
 
-    final file = File(buildStep.inputId.path);
-    final outputContent = lines.join('\n');
-    await file.writeAsString(outputContent, flush: true);
+    if (shouldWrite) {
+      final file = File(buildStep.inputId.path);
+      final outputContent = lines.join('\n');
+      await file.writeAsString(outputContent, flush: true);
+    }
   }
 
   Future<void> generate(
