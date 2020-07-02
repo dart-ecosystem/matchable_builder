@@ -1,3 +1,6 @@
+## 0.7.0+3
+- Fix duplicate part writing in PartBuilder
+
 ## 0.7.0+2
 - Extra export
 
